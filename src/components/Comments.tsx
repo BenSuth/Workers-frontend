@@ -1,3 +1,6 @@
+/*
+* Child Componenet of Post, allows for users to leave comments under a given post
+*/
 import React, { useState, FormEvent } from "react"
 import { ListGroup, Button, Collapse, Form } from "react-bootstrap"
 import "..//stylesheets/Comments.css"
@@ -14,7 +17,7 @@ interface Props {
 }
 
 const Comments = (props: Props) => {
-    const [open, setOpen] = useState(false)
+    const [open, setOpen] = useState(false) // configured for drop down comment sections
     const [username , setUsername] = useState("")
     const [content, setContent] = useState("")
     const [error, setError] = useState("")
@@ -39,6 +42,7 @@ const Comments = (props: Props) => {
         try {
             const result = await fetch(url, request)
 
+            // if server sends error, throw an new error for catch
             if (!result.ok) { 
                 const response = await result.text()
                 throw new Error(response)
@@ -52,6 +56,7 @@ const Comments = (props: Props) => {
                 return candidate instanceof Error
             }
 
+            // display an error message for the user
             if (isServerError(e)) {
                 console.log(e);
                 setError(e.toString())

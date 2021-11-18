@@ -1,8 +1,12 @@
+/*
+* Generates the form, that enables users to create a new post
+*/
 import React, { useState, FormEvent} from "react"
 import { Form, Button, Row, Col } from "react-bootstrap"
 import "../stylesheets/Create.css"
 
 const Create = () => {
+    // maintain state for each field, so that they can be cleared after a succesful submit
     const [img, setImg] = useState("")
     const [link, setLink] = useState("")
     const [error, setError] = useState("")
@@ -28,14 +32,17 @@ const Create = () => {
                 link: link
             })
         }
+
         try {
             const result = await fetch(url, request)
 
+            // if the result is not 200, throw and error to be caught
             if (!result.ok) { 
                 const response = await result.text()
                 throw new Error(response)
             }
 
+            // reset fields on succesful submit
             setError("")
             setUsername("")
             setTitle("")
@@ -47,13 +54,15 @@ const Create = () => {
                 return candidate instanceof Error
             }
 
+            // if the try block threw an error, then generate an error message to the user
             if (isServerError(e)) {
                 console.log(e);
-                setError(e.toString())
+                setError(e.toString()) // update state with error
             }
         }
     }
 
+    // Converts an image file to base64, so that it can be posted to the API
     const getBase64 = (file: Blob): Promise<string> => {
         return new Promise<string>((resolve, reject) => {
             const fileReader = new FileReader();
@@ -70,6 +79,7 @@ const Create = () => {
         })
     }
 
+    // If an image is submitted, convert to base64 and update state
     const handleImgUpload = async (e: any) => {
         const file = e.target.files[0]
         try {
@@ -80,6 +90,7 @@ const Create = () => {
         }
     }
 
+    // returns a form, if an error occured posting, it will also display the error to the user, ie. "Username cannot be empty"
     return (
         <Form className="text" onSubmit={handleSubmit}>
             <span className="text-size"> Create a Post! </span><br/>
