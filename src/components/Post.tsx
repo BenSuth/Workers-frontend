@@ -27,12 +27,13 @@ const Posts = () => {
             return post
         })
 
-        const url = "/likes"
+        const url = "https://workers-api.sutherlb.workers.dev/likes"
         const request = {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
+            mode: "cors" as RequestMode,
             body: JSON.stringify({
                 index: index,
                 likes: likes
@@ -48,11 +49,12 @@ const Posts = () => {
     }
 
     useEffect(() => {
-        const url = "/posts"
+        const url = "https://workers-api.sutherlb.workers.dev/posts"
         
         const fetchPost = async () => {
             try {
                 const response_posts = await fetch(url)
+                console.log(response_posts)
                 
                 const json_posts = await response_posts.json();
                 

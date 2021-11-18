@@ -13,9 +13,10 @@ const Create = () => {
     const handleSubmit = async (evt: FormEvent) => {
         evt.preventDefault()
 
-        const url = "/posts"
+        const url = "https://workers-api.sutherlb.workers.dev/posts"
         const request = {
             method: "POST",
+            mode: "cors" as RequestMode,
             headers: {
                 "Content-Type": "application/json",
             },
