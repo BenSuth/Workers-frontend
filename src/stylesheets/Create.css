@@ -1,0 +1,23 @@
+.text {
+    color: aqua;
+    padding-bottom: 2%;
+}
+
+.text-size {
+    font-size: 150%;
+}
+
+.btn-custom {
+    margin-top: 1%;
+    color: #282c34;
+    background-color: aqua !important;
+}
+
+.btn-custom-no-pad {
+    color: #282c34;
+    background-color: aqua !important;
+}
+
+.no-border {
+    border: 0 !important;
+}

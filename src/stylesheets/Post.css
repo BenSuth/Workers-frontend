@@ -1,0 +1,48 @@
+.custom-card {
+    border-color: aqua !important;
+    background-color: #282c34;
+    width: 50rem;
+}
+
+.custom-list-group {
+    background-color: #282c34 !important;
+}
+
+.img-scale {
+    width: 200;
+}
+
+.title-align {
+    font-size: 150%;
+}
+
+.like-button-align {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-custom {
+    margin-top: 1%;
+    color: #282c34;
+    background-color: aqua !important;
+}
+
+.btn-custom-no-pad {
+    color: #282c34;
+    background-color: aqua !important;
+}
+
+.remove-outline {
+    outline: none;
+}
+
+.btn:focus {
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+}
+
+.btn:hover {
+    opacity: 70% !important;
+}
