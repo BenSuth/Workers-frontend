@@ -22,7 +22,7 @@ const Comments = (props: Props) => {
     const handleSubmit = async (evt: FormEvent) => {
         evt.preventDefault()
 
-        const url = "/comments"
+        const url = "https://workers-api.sutherlb.workers.dev/comments"
         let new_comment = {
             index: props.index,
             username: username,
