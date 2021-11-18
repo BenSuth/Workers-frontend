@@ -41,7 +41,3 @@
     outline-offset: none !important;
     box-shadow: none !important;
 }
-
-.btn:hover {
-    opacity: 70% !important;
-}
